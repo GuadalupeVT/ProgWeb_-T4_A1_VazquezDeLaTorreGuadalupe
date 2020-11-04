@@ -28,6 +28,36 @@
                "Ismael Fuentes" => array(40,63,97,82,74,67)
             );
 
+            //Funcion ista de calificaciones
+            function imprimirCalificaciones($vector){
+                echo "<hr>  ############# Lista de calificaciones #############";
+                foreach ($vector as $key => $value) {
+                     echo "<br> Alumno(a) ".$key." :"."<br>";
+                     $cont=1;
+                     foreach ($value as $c) {
+                         echo "<br> Calificacion materia ".$cont.": ".$c;
+                         $cont=$cont+1;
+                        }
+                    echo "<br> ********************************";
+                }
+            }
+            
+
+            //Funcion para el promedio general del grupo
+            
+            //Funcion para el promedio por alumnos
+
+            //Funcion para el promedio por materia
+
+            //Funcion para el mejor promedio
+
+            //Funcion para saber cuantos alumnos son mayores al promedio general
+
+            //Mostrar lista con calificaciones y promedios
+
+            //------------Mostrando resultados -----------
+            imprimirCalificaciones($vector_alumnos_calificaciones);
+
 
         ?>
 </body>
