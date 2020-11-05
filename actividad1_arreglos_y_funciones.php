@@ -101,8 +101,21 @@
             }
 
             //Funcion para saber cuantos alumnos son mayores al promedio general
+            function alumnos_mayores_al_promedio_general($promedio,$vector){
+                echo "<hr>  ############# Promedios mayores al promedio general #############";
+                echo "<br> --------- Promedio general-> ".$promedio;
+                $cont=0;
+                foreach ($vector as $key => $value) {
+                    foreach ($value as $c => $n) {
+                        if($n>$promedio){
+                            $cont=$cont+1;
+                            echo "<br>".$c." -->Promedio: ".$n;
+                        }
+                    }
+               }
+               echo "<br> Total: ".$cont;
 
-            //Mostrar lista con calificaciones y promedios
+            }
 
             //------------Mostrando resultados -----------
             imprimir_calificaciones($vector_alumnos_calificaciones);
@@ -113,6 +126,7 @@
             echo "<br>".$promedio_general;
             echo "<br> ********************************";
             mejor_promedio($vector_alumnos_promedios);
+            alumnos_mayores_al_promedio_general($promedio_general,$vector_alumnos_promedios);
 
 
         ?>
