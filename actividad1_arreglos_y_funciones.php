@@ -85,6 +85,20 @@
             //Funcion para el promedio por materia
 
             //Funcion para el mejor promedio
+            function mejor_promedio($vector){
+                echo "<hr>  ############# Mejor promedio #############";
+                $promedio=0;
+                $cadena;
+                foreach ($vector as $key => $value) {
+                    foreach ($value as $c => $n) {
+                        if($n>$promedio){
+                            $promedio=$n;
+                            $cadena = "<br>".$c." -->Promedio: ".$n;
+                        }
+                    }
+               }
+               echo $cadena;
+            }
 
             //Funcion para saber cuantos alumnos son mayores al promedio general
 
@@ -98,6 +112,7 @@
             $promedio_general=promedio_general($vector_alumnos_promedios);
             echo "<br>".$promedio_general;
             echo "<br> ********************************";
+            mejor_promedio($vector_alumnos_promedios);
 
 
         ?>
