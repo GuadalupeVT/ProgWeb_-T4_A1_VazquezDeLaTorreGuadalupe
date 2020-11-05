@@ -44,6 +44,17 @@
             
 
             //Funcion para el promedio general del grupo
+            function promedio_general($vector){ 
+                $promedio=0;
+                foreach ($vector as $key => $value) {
+                     foreach ($value as $c => $n) {
+                         $promedio=$promedio+$n;
+                        }
+                }
+                return ($promedio/10);
+            }
+
+
             
             //Funcion para el promedio por alumnos
             function promedio_por_alumno($vector){
@@ -81,7 +92,12 @@
 
             //------------Mostrando resultados -----------
             imprimir_calificaciones($vector_alumnos_calificaciones);
-            imprimir_promedios(promedio_por_alumno($vector_alumnos_calificaciones));
+            $vector_alumnos_promedios=promedio_por_alumno($vector_alumnos_calificaciones);
+            imprimir_promedios($vector_alumnos_promedios);
+            echo "<hr>  ############# Promedio general #############";
+            $promedio_general=promedio_general($vector_alumnos_promedios);
+            echo "<br>".$promedio_general;
+            echo "<br> ********************************";
 
 
         ?>
