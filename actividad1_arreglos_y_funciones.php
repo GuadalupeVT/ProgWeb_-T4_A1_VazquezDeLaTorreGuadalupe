@@ -28,7 +28,7 @@
                "Ismael Fuentes" => array(40,63,97,82,74,67)
             );
 
-            //Funcion ista de calificaciones
+            //Funcion lista de calificaciones
             function imprimir_calificaciones($vector){
                 echo "<hr>  ############# Lista de calificaciones #############";
                 foreach ($vector as $key => $value) {
@@ -78,11 +78,39 @@
                      foreach ($value as $c => $n) {
                          echo "<br> Alumno(a): ".$c." -->Promedio: ".$n;
                         }
-                    echo "<br> ********************************";
                 }
             }
 
             //Funcion para el promedio por materia
+            function promedios_por_materia($vector){
+                echo "<hr>  ############# Promedios por materia #############";
+                $calificacion1=0;
+                $calificacion2=0;
+                $calificacion3=0;
+                $calificacion4=0;
+                $calificacion5=0;
+                $calificacion6=0;
+                foreach ($vector as $key => $value) {
+                        $calificacion1=$calificacion1+$vector[$key][0];
+                        $calificacion2=$calificacion2+$vector[$key][1];
+                        $calificacion3=$calificacion3+$vector[$key][2];
+                        $calificacion4=$calificacion4+$vector[$key][3];
+                        $calificacion5=$calificacion5+$vector[$key][4];
+                        $calificacion6=$calificacion6+$vector[$key][5];
+                }
+                $prom=$calificacion1/10;
+                echo "<br> Promedio materia 1: ".$prom;
+                $prom=$calificacion2/10;
+                echo "<br> Promedio materia 2: ".$prom;
+                $prom=$calificacion3/10;
+                echo "<br> Promedio materia 3: ".$prom;
+                $prom=$calificacion4/10;
+                echo "<br> Promedio materia 4: ".$prom;
+                $prom=$calificacion5/10;
+                echo "<br> Promedio materia 5: ".$prom;
+                $prom=$calificacion6/10;
+                echo "<br> Promedio materia 6: ".$prom;
+            }
 
             //Funcion para el mejor promedio
             function mejor_promedio($vector){
@@ -103,7 +131,6 @@
             //Funcion para saber cuantos alumnos son mayores al promedio general
             function alumnos_mayores_al_promedio_general($promedio,$vector){
                 echo "<hr>  ############# Promedios mayores al promedio general #############";
-                echo "<br> --------- Promedio general-> ".$promedio;
                 $cont=0;
                 foreach ($vector as $key => $value) {
                     foreach ($value as $c => $n) {
@@ -121,14 +148,12 @@
             imprimir_calificaciones($vector_alumnos_calificaciones);
             $vector_alumnos_promedios=promedio_por_alumno($vector_alumnos_calificaciones);
             imprimir_promedios($vector_alumnos_promedios);
+            mejor_promedio($vector_alumnos_promedios);
             echo "<hr>  ############# Promedio general #############";
             $promedio_general=promedio_general($vector_alumnos_promedios);
             echo "<br>".$promedio_general;
-            echo "<br> ********************************";
-            mejor_promedio($vector_alumnos_promedios);
             alumnos_mayores_al_promedio_general($promedio_general,$vector_alumnos_promedios);
-
-
+            promedios_por_materia($vector_alumnos_calificaciones);
         ?>
 </body>
 </html>
