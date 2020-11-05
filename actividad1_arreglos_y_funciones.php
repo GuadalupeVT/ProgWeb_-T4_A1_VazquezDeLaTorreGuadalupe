@@ -29,7 +29,7 @@
             );
 
             //Funcion ista de calificaciones
-            function imprimirCalificaciones($vector){
+            function imprimir_calificaciones($vector){
                 echo "<hr>  ############# Lista de calificaciones #############";
                 foreach ($vector as $key => $value) {
                      echo "<br> Alumno(a) ".$key." :"."<br>";
@@ -46,6 +46,30 @@
             //Funcion para el promedio general del grupo
             
             //Funcion para el promedio por alumnos
+            function promedio_por_alumno($vector){
+                $promedios_alumnos=array();
+                foreach ($vector as $key => $value) {
+                     $promedio=0;
+                     foreach ($value as $c) {
+                         $promedio=$promedio+$c;
+                        }
+                        $promedio=$promedio/6;
+                        $alumno=array($key=>$promedio);
+                        array_push($promedios_alumnos,$alumno);
+                }
+                return $promedios_alumnos;
+            }
+
+            //Funcion imprimir promedios
+            function imprimir_promedios($vector){
+                echo "<hr>  ############# Lista de promedios #############";
+                foreach ($vector as $key => $value) {
+                     foreach ($value as $c => $n) {
+                         echo "<br> Alumno(a): ".$c." -->Promedio: ".$n;
+                        }
+                    echo "<br> ********************************";
+                }
+            }
 
             //Funcion para el promedio por materia
 
@@ -56,7 +80,8 @@
             //Mostrar lista con calificaciones y promedios
 
             //------------Mostrando resultados -----------
-            imprimirCalificaciones($vector_alumnos_calificaciones);
+            imprimir_calificaciones($vector_alumnos_calificaciones);
+            imprimir_promedios(promedio_por_alumno($vector_alumnos_calificaciones));
 
 
         ?>
